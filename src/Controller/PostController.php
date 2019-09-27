@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class PostController{
   /**
    * @Route("/")
+   * @Method({"GET"})
    */
 
   public function index(){
