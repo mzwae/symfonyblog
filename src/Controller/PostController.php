@@ -14,6 +14,7 @@ class PostController extends Controller{
 
   public function index(){
     // return new Response('<html><body>Hello</body></html>');
-    return $this->render('posts/index.html.twig');
+    $posts = ['Post 1', 'Post 2'];
+    return $this->render('posts/index.html.twig', array('posts' => $posts));
   }
 }

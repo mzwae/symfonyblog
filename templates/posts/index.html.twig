@@ -4,4 +4,28 @@
 
 {% block body %}
   <h1>Posts</h1>
+ {% if posts %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Post title</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for post in posts %}
+          <tr>
+            <td>{{ post }}</td>
+            <td>
+              <a href="/posts/1" class="btn btn-dark">Show</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+ {% else %}
+    <p>No posts to display!</p>
+ {% endif %}
+
 {% endblock %}
