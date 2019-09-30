@@ -27,4 +27,23 @@ class Post
     private $body;
 
 
+    // Getters and Setters
+    public function getId(){
+      return $this->id;
+    }
+
+    public function getTitle(){
+      return $this->title;
+    }
+    public function setTitle($title){
+      return $this->title = $title;
+    }
+    public function getBody(){
+      return $this->body;
+    }
+    public function setBody($body){
+      return $this->title = $body;
+    }
+
+
 }
