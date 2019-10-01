@@ -42,7 +42,7 @@ class Post
       return $this->body;
     }
     public function setBody($body){
-      return $this->title = $body;
+      return $this->body = $body;
     }
 
 
