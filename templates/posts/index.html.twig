@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}SymphBlog Posts{% endblock%}
+{% block title %}SymphBlog Posts{% endblock %}
 
 {% block body %}
   <h1>Posts</h1>
@@ -17,7 +17,7 @@
           <tr>
             <td>{{ post.title }}</td>
             <td>
-              <a href="/posts/{{post.id}}" class="btn btn-dark">Show</a>
+              <a href="post/{{post.id}}" class="btn btn-dark">Show</a>
             </td>
           </tr>
         {% endfor %}

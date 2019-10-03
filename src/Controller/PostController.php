@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class PostController extends Controller{
   /**
-   * @Route("/")
+   * @Route("/", name="article_list")
    * @Method({"GET"})
    */
 
@@ -21,6 +21,15 @@ class PostController extends Controller{
 
     return $this->render('posts/index.html.twig', array('posts' => $posts));
   }
+
+  /**
+   *
+   * @Route("/post/{id}", name="post_show")
+   */
+   public function show($id){
+     $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
+     return $this->render('posts/show.html.twig', array('post' => $post));
+   }
 
   // /**
   //  * @Route("/post/save")
