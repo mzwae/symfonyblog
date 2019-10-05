@@ -29,23 +29,37 @@ class PostController extends Controller{
     return $this->render('posts/index.html.twig', array('posts' => $posts));
   }
 
-  /**
-   *
-   * @Route("/post/{id}", name="post_show")
-   */
-   public function show($id){
-     $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
-     return $this->render('posts/show.html.twig', array('post' => $post));
-   }
+
 
    /**
     * @Route("/post/new", name:"new_post")
     * Method({"GET", "POST"})
     */
-    public function new(){
+    public function new(Request $request){
+      $post = new Post();
 
+      $form = $this->createFormBuilder($post)
+        ->add('title', TextType::class, array('attr' => array('class' => 'form-control')))
+        ->add('body', TextareaType::class, array('required' => false, 'attr' => array('class' => 'form-control')))
+        ->add('save', SubmitType::class, array(
+          'label' => 'Create',
+          'attr' => array('class' => 'btn btn-primary mt-3')
+        ))
+        ->getForm();
+      return $this->render('posts/new.html.twig', array(
+        'form' => $form->createView()
+      ));
 
     }
+
+    /**
+     *
+     * @Route("/post/{id}", name="post_show")
+     */
+     public function show($id){
+       $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
+       return $this->render('posts/show.html.twig', array('post' => $post));
+     }
 
   // /**
   //  * @Route("/post/save")
