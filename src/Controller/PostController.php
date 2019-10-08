@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use Symfony\Component\Form\Forms;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -32,7 +33,7 @@ class PostController extends Controller{
 
 
    /**
-    * @Route("/post/new", name:"new_post")
+    * @Route("/post/new", name="new_post")
     * Method({"GET", "POST"})
     */
     public function new(Request $request){
