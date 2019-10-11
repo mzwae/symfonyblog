@@ -65,6 +65,20 @@ class PostController extends Controller{
     }
 
     /**
+     * @Route("/post/delete/{id}")
+     * @Method({"DELETE"})
+     */
+     public function delete(Request $request, $id){
+       // $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
+       // $entityManager = $this->getDoctrine()->getManager();
+       // $entityManager->remove($post);
+       // $entityManager->flush();
+       //
+       // $response = new Response();
+       // $response->send();
+     }
+
+    /**
      *
      * @Route("/post/{id}", name="post_show")
      */
