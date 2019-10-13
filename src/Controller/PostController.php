@@ -97,10 +97,11 @@ class PostController extends Controller{
     }
 
     /**
-     * @Route("/post/delete/{id}")
+     * @Route("/post/delete/{id}", name="post_delete")
      * @Method({"DELETE"})
      */
      public function delete(Request $request, $id){
+       // echo "Delete request received"; die();
        $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
        $entityManager = $this->getDoctrine()->getManager();
        $entityManager->remove($post);
@@ -108,6 +109,7 @@ class PostController extends Controller{
 
        $response = new Response();
        $response->send();
+       return $this->redirectToRoute('article_list');
      }
 
     /**
@@ -115,6 +117,7 @@ class PostController extends Controller{
      * @Route("/post/{id}", name="post_show")
      */
      public function show($id){
+       echo "showing blog"; die();
        $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
        return $this->render('posts/show.html.twig', array('post' => $post));
      }

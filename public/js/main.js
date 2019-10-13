@@ -6,9 +6,23 @@ if (posts) {
       if (confirm('Are you sure you want to delete this post?')) {
         const id = e.target.getAttribute('data-id');
 
-        fetch(`/post/delete/${id}`, {
-          method: 'DELETE'
-        }).then(res => window.location.reload());
+        // $.ajax(`/post/delete/${id}`, {
+        //   method: 'DELETE'
+        // }).success(res => window.location.reload());
+
+        $.ajax({
+          url: `post/delete/${id}`,
+          method: "DELETE",
+          success: function(){
+            console.log("Request scceeded");
+            window.location.reload();
+          },
+          fail: function(err){
+            console.log("Request Failed. Error message is below...");
+            console.log(err);
+          }
+
+        });
       }
     }
   });
