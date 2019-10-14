@@ -5,25 +5,21 @@ if (posts) {
     if (e.target.className === 'btn btn-danger delete-post') {
       if (confirm('Are you sure you want to delete this post?')) {
         const id = e.target.getAttribute('data-id');
-
-        // $.ajax(`/post/delete/${id}`, {
-        //   method: 'DELETE'
-        // }).success(res => window.location.reload());
-
         $.ajax({
           url: `post/delete/${id}`,
-          method: "DELETE",
-          success: function(){
+          method: "DELETE"
+        })
+          .done( function(){
             console.log("Request scceeded");
             window.location.reload();
-          },
-          fail: function(err){
+          })
+          .fail(function(err){
             console.log("Request Failed. Error message is below...");
             console.log(err);
-          }
+          });
 
-        });
+        }
       }
     }
-  });
+  );
 }

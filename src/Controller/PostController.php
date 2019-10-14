@@ -101,7 +101,8 @@ class PostController extends Controller{
      * @Method({"DELETE"})
      */
      public function delete(Request $request, $id){
-       // echo "Delete request received"; die();
+      
+       // die("reqest deleted received ---> $request ---> $response");
        $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
        $entityManager = $this->getDoctrine()->getManager();
        $entityManager->remove($post);
