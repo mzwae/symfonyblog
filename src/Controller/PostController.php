@@ -75,7 +75,7 @@ class PostController extends Controller{
         ->add('title', TextType::class, array('attr' => array('class' => 'form-control')))
         ->add('body', TextareaType::class, array('required' => false, 'attr' => array('class' => 'form-control')))
         ->add('save', SubmitType::class, array(
-          'label' => 'Create',
+          'label' => 'Update',
           'attr' => array('class' => 'btn btn-primary mt-3')
         ))
         ->getForm();
@@ -101,7 +101,7 @@ class PostController extends Controller{
      * @Method({"DELETE"})
      */
      public function delete(Request $request, $id){
-      
+
        // die("reqest deleted received ---> $request ---> $response");
        $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
        $entityManager = $this->getDoctrine()->getManager();
@@ -118,7 +118,6 @@ class PostController extends Controller{
      * @Route("/post/{id}", name="post_show")
      */
      public function show($id){
-       echo "showing blog"; die();
        $post = $this->getDoctrine()->getRepository(Post::class)->find($id);
        return $this->render('posts/show.html.twig', array('post' => $post));
      }
